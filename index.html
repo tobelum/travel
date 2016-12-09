@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Finder</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="css/superfish.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+	<!-- CS Select -->
+	<link rel="stylesheet" href="css/cs-select.css">
+	<link rel="stylesheet" href="css/cs-skin-border.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	    <script>
+
+            function addUserComplete(xhr, status){
+                //alert("status is" + status);
+
+                if(status!="success"){
+                    alert("status is "+status);
+                    //spanSignup.innerHTML="Sign Up Unsuccessful";
+                    return;
+                }
+                //alert(xhr.responseText);
+                //console.log(obj);
+                //var obj= $.parseJSON(xhr.responseText);
+                console.log(xhr.responseText);
+                //alert("hey");
+                // if(obj.result==0){
+                //     alert("server response: "+obj.message);
+                    
+                //     spanSignup.innerHTML=obj.message;
+                //     console.log(obj.message);
+                // }else{
+                //     alert("Welcome, you have successfully registered.");
+                //     window.location="home.html";
+                    
+                // }
+                window.location="home.html";
+            }
+
+           function addUser(){
+                username=$("#username").val();
+                firstname=$("#firstname").val();
+                lastname=$("#lastname").val();
+                email=$("#email").val();
+                password=$("#password").val();
+                phone=$("#phone").val();
+                organization=$("#organization").val();
+
+                //alert(username);
+
+                pageUrl="usersajax.php?cmd=1&username="+username+"&firstname="+firstname+"&lastname="+lastname+"&email="+email+"&password="+password+"&phone="+phone+"&organization="+organization;
+                $.ajax(pageUrl,{async:true,complete:addUserComplete});
+                alert("Thank you for registering, you can now sign in using your details");
+                //prompt('url',pageUrl);
+           }
+
+           function logUserComplete(xhr,status){
+                if(status!="success"){
+                alert("status is "+status);
+                //spanSignup.innerHTML="Sign Up Unsuccessful";
+                return;
+                }
+                //alert("hello");
+                console.log(xhr.responseText);
+                var obj= $.parseJSON(xhr.responseText);
+                
+                alert("object is "+obj);
+                
+                //alert("hey");
+                if(obj.result==0){
+                    alert("server response: "+obj.message);
+                    
+                    //spanSignup.innerHTML=obj.message;
+                    console.log(obj.message);
+                }else{
+                    alert("Welcome, you have successfully logged in.");
+                    window.location="home.html";
+                    
+                }
+           }
+
+           function logUser(){
+                username=$("#loguser").val();
+                password=$("#logpassword").val();
+
+                pageUrl="usersajax.php?cmd=2&username="+username+"&password="+password;
+                $.ajax(pageUrl,{async:true,complete:logUserComplete});
+                alert("Thank you for returning, please wait a moment while we retrieve your information.");
+                //prompt('url',pageUrl);
+           } 
+        </script>
+	</head>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+
+		<header id="fh5co-header-section" class="sticky-banner">
+			<div class="container">
+				<div class="nav-header">
+<!-- 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a> -->
+					<h1 id="fh5co-logo"><a href="index.html"><i class="icon-airplane"></i>Finder</a></h1>
+					<!-- START #fh5co-menu-wrap -->
+				</div>
+			</div>
+		</header>
+
+		<!-- end:header-top -->
+
+			<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg);">
+				<div class="desc">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-5 col-md-5">
+								<div class="tabulation animate-box">
+
+								  <!-- Nav tabs -->
+									<ul class="nav nav-tabs" role="tablist">
+								      <li role="presentation" class="active">
+								      	<a href="#login" aria-controls="flights" role="tab" data-toggle="tab">Log In</a>
+								      </li>
+								      <li role="presentation">
+								    	   <a href="#signup" aria-controls="hotels" role="tab" data-toggle="tab">Sign Up</a>
+								      </li>
+								   </ul>
+
+								   <!-- Tab panes -->
+									<div class="tab-content">
+									 <div role="tabpanel" class="tab-pane active" id="login">
+										<div class="row">
+											<div class="col-xxs-12 col-xs-6 mt">
+												<div class="input-field">
+													<label for="username">Username:</label>
+													<input type="text" class="form-control" id="loguser"/>
+												</div>
+											</div>
+											<div class="col-xxs-12 col-xs-6 mt">
+												<div class="input-field">
+													<label for="password">Password:</label>
+													<input type="password" class="form-control" id="logpassword"/>
+												</div>
+											</div>
+											<div class="col-xs-12">
+												<button type="submit" class="btn btn-primary btn-block" onclick ="logUser()">Log In</button>
+											</div>
+										</div>
+									 </div>
+
+									 <div role="tabpanel" class="tab-pane" id="signup">
+									 	<div class="row">
+											<div class="col-xxs-12 col-xs-12 mt">
+												<div class="input-field">
+													<label for="username">Username:</label>
+													<input type="text" class="form-control" id="username"/>
+												</div>
+											</div>
+											<div class="col-xxs-12 col-xs-6 mt alternate">
+												<div class="input-field">
+													<label for="firstname">First Name:</label>
+													<input type="text" class="form-control" id="firstname"/>
+												</div>
+											</div>
+											<div class="col-xxs-12 col-xs-6 mt alternate">
+												<div class="input-field">
+													<label for="lastname">Last Name:</label>
+													<input type="text" class="form-control" id="lastname"/>
+												</div>
+											</div>
+											<div class="col-xxs-12 col-xs-6 mt alternate">
+												<div class="input-field">
+													<label for="email">Email:</label>
+													<input type="text" class="form-control" id="email"/>
+												</div>
+											</div>
+											<div class="col-xxs-12 col-xs-6 mt alternate">
+												<div class="input-field">
+													<label for="password">Password:</label>
+													<input type="password" class="form-control" id="password"/>
+												</div>
+											</div>
+											<div class="col-xxs-12 col-xs-6 mt alternate">
+												<div class="input-field">
+													<label for="phone">Phone:</label>
+													<input type="text" class="form-control" id="phone"/>
+												</div>
+											</div>
+											<div class="col-xxs-12 col-xs-6 mt alternate">
+												<div class="input-field">
+													<label for="organization">Organization:</label>
+													<input type="text" class="form-control" id="organization"/>
+												</div>
+											</div>
+											<div class="col-xs-12">
+												<button type="submit" class="btn btn-primary btn-block" onclick ="addUser()">Sign Up</button>
+											</div>
+										</div>
+									 </div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row row-bottom-padded-md">
+						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+							<h3>About Finder</h3>
+							<p>Finder is your personal map application that allows you to move freely anywhere in the world.</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="fh5co-social-icons">
+								<a href="#"><i class="icon-twitter2"></i></a>
+								<a href="#"><i class="icon-facebook2"></i></a>
+								<a href="#"><i class="icon-instagram"></i></a>
+								<a href="#"><i class="icon-dribbble2"></i></a>
+								<a href="#"><i class="icon-youtube"></i></a>
+							</p>
+							<p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+	
+
+	</div>
+	<!-- END fh5co-page -->
+
+	</div>
+	<!-- END fh5co-wrapper -->
+
+	<!-- jQuery -->
+
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/sticky.js"></script>
+
+	<!-- Stellar -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Superfish -->
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Date Picker -->
+	<script src="js/bootstrap-datepicker.min.js"></script>
+	<!-- CS Select -->
+	<script src="js/classie.js"></script>
+	<script src="js/selectFx.js"></script>
+	
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+
